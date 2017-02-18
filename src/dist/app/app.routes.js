@@ -7,10 +7,6 @@ exports.routes = [{
         path: 'home',
         component: home_component_1.HomeComponent
     }, {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-    }, {
         path: 'todos',
         component: todos_component_1.TodosComponent
     }, {
