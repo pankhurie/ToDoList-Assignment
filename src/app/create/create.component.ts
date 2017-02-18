@@ -15,6 +15,9 @@ export class CreateComponent  implements OnInit{
 
     }
     submit(){
-
+        this.service.tasks.push(this.task);
+        this.router.navigate(['show']);
+        // alert(JSON.stringify(this.task));
     }
+
 }

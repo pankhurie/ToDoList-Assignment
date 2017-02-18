@@ -10,17 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var task_1 = require('../task');
+var app_service_1 = require("../app.service");
 var CreateComponent = (function () {
-    function CreateComponent(router) {
+    function CreateComponent(router, service) {
         this.router = router;
+        this.service = service;
+        this.task = new task_1.Task("", "", "", "");
     }
+    CreateComponent.prototype.ngOnInit = function () {
+    };
+    CreateComponent.prototype.submit = function () {
+        this.service.tasks.push(this.task);
+        this.router.navigate(['show']);
+        // alert(JSON.stringify(this.task));
+    };
     CreateComponent = __decorate([
         core_1.Component({
             selector: 'create',
             templateUrl: './app/create/create.component.html',
             styleUrls: ['']
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, app_service_1.AppService])
     ], CreateComponent);
     return CreateComponent;
 }());
