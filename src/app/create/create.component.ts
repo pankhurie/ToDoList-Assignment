@@ -9,11 +9,10 @@ import {AppService} from "../app.service";
     styleUrls: ['']
 })
 export class CreateComponent  implements OnInit{
-    task:Task;
+    task:Task=new Task("","","","");
     index:number;
     constructor(private router: Router,private route: ActivatedRoute, private service:AppService) {}
     ngOnInit(){
-        this.task=null;
         this.route.params.subscribe((data: any) => {
             this.index = +data.i;
             if(this.index||this.index===0){
