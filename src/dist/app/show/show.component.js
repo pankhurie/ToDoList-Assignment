@@ -20,13 +20,14 @@ var ShowComponent = (function () {
         this.tasks = this.service.tasks;
     };
     ShowComponent.prototype.edit = function (i) {
-        alert("Attempt to edit index: " + i);
+        // alert("Attempt to edit index: "+i)
         // let index = this.service.tasks.indexOf(this.tasks[i]);
         this.router.navigate(['edit', i]);
     };
     ShowComponent.prototype.done = function (i) {
-        alert("Attempt to delete index: " + i);
-        this.service.tasks.splice(i, 1);
+        // alert("Attempt to delete index: "+i)
+        // this.service.tasks.splice(i, 1);
+        this.service.delete(i);
     };
     ShowComponent = __decorate([
         core_1.Component({

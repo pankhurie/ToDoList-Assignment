@@ -1,5 +1,6 @@
-<div class="container">
-<table class="table table-striped">
+<div class="row">
+    <div class="row col-md-8 col-md-offset-2">
+<table class="table table-striped table-responsive table-bordered ">
     <tr>
         <th>
             Date
@@ -13,7 +14,13 @@
         <th>
             Priority
         </th>
-
+        <th>
+        </th>
+    </tr>
+    <tr *ngIf="!tasks.length">
+        <td colspan="5" class="text-center">
+            No tasks created yet.
+        </td>
     </tr>
     <tr *ngFor="let task of tasks; let i = index">
         <td>
@@ -29,11 +36,10 @@
             {{task.priority}}
         </td>
         <td>
-            <button (click)="edit(i)" class="btn btn-success">Edit</button>
+            <button (click)="edit(i)" class="btn btn-toolbar">Edit</button>
             <button (click)="done(i)" class="btn btn-success">Done</button>
         </td>
-
-
     </tr>
 </table>
-</div>
+    </div>
+    </div>

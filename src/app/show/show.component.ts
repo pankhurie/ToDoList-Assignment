@@ -15,12 +15,13 @@ export class ShowComponent implements OnInit{
         this.tasks = this.service.tasks;
     }
     edit(i:number){
-        alert("Attempt to edit index: "+i)
+        // alert("Attempt to edit index: "+i)
         // let index = this.service.tasks.indexOf(this.tasks[i]);
         this.router.navigate(['edit',i])
     }
     done(i:any){
-        alert("Attempt to delete index: "+i)
-        this.service.tasks.splice(i, 1);
+        // alert("Attempt to delete index: "+i)
+        // this.service.tasks.splice(i, 1);
+        this.service.delete(i);
     }
 }

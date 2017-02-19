@@ -15,17 +15,21 @@ export class CreateComponent  implements OnInit{
     ngOnInit(){
         this.route.params.subscribe((data: any) => {
             this.index = +data.i;
-            if(this.index){
+            if(this.index||this.index===0){
                 this.task=this.service.tasks[this.index];
-                alert("Got i= "+this.index);
+                // alert("Got i= "+this.index);
             }
         });
     }
+
+
     submit(){
         if(this.index){
-            this.service.tasks[this.index]=this.task;
+            // this.service.tasks[this.index]=this.task;
+            this.service.update(this.index, this.task);
         }else{
-            this.service.tasks.push(this.task);
+            // this.service.tasks.push(this.task);
+            this.service.add(this.task);
         }
 
         this.router.navigate(['show']);

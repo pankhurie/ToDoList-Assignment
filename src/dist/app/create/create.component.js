@@ -23,18 +23,19 @@ var CreateComponent = (function () {
         var _this = this;
         this.route.params.subscribe(function (data) {
             _this.index = +data.i;
-            if (_this.index) {
+            if (_this.index || _this.index === 0) {
                 _this.task = _this.service.tasks[_this.index];
-                alert("Got i= " + _this.index);
             }
         });
     };
     CreateComponent.prototype.submit = function () {
         if (this.index) {
-            this.service.tasks[this.index] = this.task;
+            // this.service.tasks[this.index]=this.task;
+            this.service.update(this.index, this.task);
         }
         else {
-            this.service.tasks.push(this.task);
+            // this.service.tasks.push(this.task);
+            this.service.add(this.task);
         }
         this.router.navigate(['show']);
         // alert(JSON.stringify(this.task));

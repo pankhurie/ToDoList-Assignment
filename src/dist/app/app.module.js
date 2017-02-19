@@ -13,11 +13,9 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var common_1 = require('@angular/common');
 var app_component_1 = require('./app.component');
-var home_component_1 = require('./home/home.component');
 var router_1 = require("@angular/router");
 var app_routes_1 = require("./app.routes");
 var app_service_1 = require("./app.service");
-var todos_component_1 = require("./todolist/todos.component");
 var http_1 = require('@angular/http');
 var create_component_1 = require("./create/create.component");
 var show_component_1 = require("./show/show.component");
@@ -27,7 +25,7 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, common_1.CommonModule, router_1.RouterModule.forRoot(app_routes_1.routes), http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, todos_component_1.TodosComponent, create_component_1.CreateComponent, show_component_1.ShowComponent],
+            declarations: [app_component_1.AppComponent, create_component_1.CreateComponent, show_component_1.ShowComponent],
             bootstrap: [app_component_1.AppComponent],
             providers: [app_service_1.AppService]
         }), 
