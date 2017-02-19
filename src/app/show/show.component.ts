@@ -9,10 +9,18 @@ import {AppService} from "../app.service";
     styleUrls: ['']
 })
 export class ShowComponent implements OnInit{
-    tasks:Task[]
+    tasks:Task[];
     constructor(private router: Router, private service: AppService) {}
     ngOnInit() {
         this.tasks = this.service.tasks;
     }
-
+    edit(i:number){
+        alert("Attempt to edit index: "+i)
+        // let index = this.service.tasks.indexOf(this.tasks[i]);
+        this.router.navigate(['edit',i])
+    }
+    done(i:any){
+        alert("Attempt to delete index: "+i)
+        this.service.tasks.splice(i, 1);
+    }
 }

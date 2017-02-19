@@ -13,8 +13,9 @@
         <th>
             Priority
         </th>
+
     </tr>
-    <tr *ngFor="let task of tasks">
+    <tr *ngFor="let task of tasks; let i = index">
         <td>
             {{task.date}}
         </td>
@@ -27,6 +28,11 @@
         <td>
             {{task.priority}}
         </td>
+        <td>
+            <button (click)="edit(i)" class="btn btn-success">Edit</button>
+            <button (click)="done(i)" class="btn btn-success">Done</button>
+        </td>
+
 
     </tr>
 </table>

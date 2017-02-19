@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core'
-import {Router} from '@angular/router'
+import {Router, ActivatedRoute} from '@angular/router'
 import {Task} from '../task'
 import {AppService} from "../app.service";
 
@@ -10,12 +10,24 @@ import {AppService} from "../app.service";
 })
 export class CreateComponent  implements OnInit{
     task:Task=new Task("","","","");
-    constructor(private router: Router, private service:AppService) {}
+    index:number;
+    constructor(private router: Router,private route: ActivatedRoute, private service:AppService) {}
     ngOnInit(){
-
+        this.route.params.subscribe((data: any) => {
+            this.index = +data.i;
+            if(this.index){
+                this.task=this.service.tasks[this.index];
+                alert("Got i= "+this.index);
+            }
+        });
     }
     submit(){
-        this.service.tasks.push(this.task);
+        if(this.index){
+            this.service.tasks[this.index]=this.task;
+        }else{
+            this.service.tasks.push(this.task);
+        }
+
         this.router.navigate(['show']);
         // alert(JSON.stringify(this.task));
     }

@@ -18,7 +18,7 @@ var AppComponent = (function () {
      * method will be called automatically when component is initialised
      */
     AppComponent.prototype.ngOnInit = function () {
-        // this.myinterns=this.service.interns;
+        this.tasks = this.service.tasks;
     };
     AppComponent = __decorate([
         core_1.Component({

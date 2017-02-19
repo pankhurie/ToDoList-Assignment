@@ -13,8 +13,15 @@ exports.routes = [{
         path: 'create',
         component: create_component_1.CreateComponent
     }, {
+        path: 'edit/:i',
+        component: create_component_1.CreateComponent
+    }, {
         path: 'show',
         component: show_component_1.ShowComponent
+    }, {
+        path: '',
+        redirectTo: '/show',
+        pathMatch: 'full'
     }];
 //
 // export const routes:Routes = [{

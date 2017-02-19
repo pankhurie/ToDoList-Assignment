@@ -16,9 +16,16 @@ export const routes:Routes = [{
     component: CreateComponent
 
 },{
+    path : 'edit/:i',
+    component: CreateComponent
+},{
     path : 'show',
     component: ShowComponent
 
+},{
+    path : '',
+    redirectTo: '/show',
+    pathMatch: 'full'
 }];
 
 

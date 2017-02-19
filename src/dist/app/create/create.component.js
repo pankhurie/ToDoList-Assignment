@@ -13,15 +13,29 @@ var router_1 = require('@angular/router');
 var task_1 = require('../task');
 var app_service_1 = require("../app.service");
 var CreateComponent = (function () {
-    function CreateComponent(router, service) {
+    function CreateComponent(router, route, service) {
         this.router = router;
+        this.route = route;
         this.service = service;
         this.task = new task_1.Task("", "", "", "");
     }
     CreateComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (data) {
+            _this.index = +data.i;
+            if (_this.index) {
+                _this.task = _this.service.tasks[_this.index];
+                alert("Got i= " + _this.index);
+            }
+        });
     };
     CreateComponent.prototype.submit = function () {
-        this.service.tasks.push(this.task);
+        if (this.index) {
+            this.service.tasks[this.index] = this.task;
+        }
+        else {
+            this.service.tasks.push(this.task);
+        }
         this.router.navigate(['show']);
         // alert(JSON.stringify(this.task));
     };
@@ -31,7 +45,7 @@ var CreateComponent = (function () {
             templateUrl: './app/create/create.component.html',
             styleUrls: ['']
         }), 
-        __metadata('design:paramtypes', [router_1.Router, app_service_1.AppService])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, app_service_1.AppService])
     ], CreateComponent);
     return CreateComponent;
 }());
