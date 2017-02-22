@@ -23,7 +23,6 @@ exports.routes = [{
 //     path:'login',
 //     component: LoginComponent
 // },{
-//     path:'details/:_id',
+//     path:'details/:id',
 //     component: LoginComponent
 // }]; 
-//# sourceMappingURL=app.routes.js.map

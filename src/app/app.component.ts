@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {AppService} from "./app.service";
-import {Task} from "./task";
 @Component({
+    moduleId: module.id,
     selector: 'my-app',
-    templateUrl: './app/app.component.html',
-    styleUrls: ['./app/app.component.css'],
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
 })
 
 export class AppComponent implements OnInit {
 
-    tasks: Task[];
+    // tasks: Task[];
 
 
     constructor(private service: AppService) {
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
      * method will be called automatically when component is initialised
      */
     ngOnInit() {
-        this.tasks = this.service.tasks;
+        // this.tasks = this.service.tasks;
     }
 }
 

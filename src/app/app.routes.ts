@@ -29,6 +29,6 @@ export const routes:Routes = [{
 //     path:'login',
 //     component: LoginComponent
 // },{
-//     path:'details/:id',
+//     path:'details/:_id',
 //     component: LoginComponent
 // }];

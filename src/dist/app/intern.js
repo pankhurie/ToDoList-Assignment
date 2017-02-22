@@ -1,7 +1,7 @@
 "use strict";
 var Intern = (function () {
     // constructor();
-    // constructor(id:number, name:string);
+    // constructor(_id:number, name:string);
     function Intern(id, name) {
         if (id && name) {
             this.id = id;
